@@ -10,12 +10,25 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { loadUser } from '../actions/auth'
 import { useEffect } from 'react'
 import setAuthToken from '../utils/setAuthToken'
+import { useRouter } from 'next/router'
+import * as gtag from '../lib/gtag'
 
 export default function App({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState)
   const persistor = persistStore(store, {}, function () {
     persistor.persist()
   })
+
+  const router = useRouter()
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
 
   useEffect(() => {
     // const persistStorage = localStorage.getItem('persist:primary')
