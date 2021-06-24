@@ -78,7 +78,7 @@ const Drop = ({ drop, theme, auth }) => {
     editData.code = formData.code === '' ? drop.code : formData.code
     try {
       const { data } = await axios.put(
-        `http://api.codedrop.pro/drops/${drop.slug}`,
+        `https://codedrop-server.herokuapp.com/drops/${drop.slug}`,
         editData
       )
       Router.push(`/d/${data.slug}`)
@@ -91,7 +91,7 @@ const Drop = ({ drop, theme, auth }) => {
   const deleteDrop = async () => {
     try {
       const res = await axios.delete(
-        `http://api.codedrop.pro/drops/${drop.slug}`
+        `https://codedrop-server.herokuapp.com/drops/${drop.slug}`
       )
       Router.push('/')
     } catch (err) {
@@ -221,7 +221,7 @@ const Drop = ({ drop, theme, auth }) => {
 
 export const getServerSideProps = async (context) => {
   const res = await axios.get(
-    `http://api.codedrop.pro/drops/${context.params.slug}`
+    `https://codedrop-server.herokuapp.com/drops/${context.params.slug}`
   )
   const drop = await res.data
 

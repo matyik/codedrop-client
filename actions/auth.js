@@ -17,7 +17,9 @@ export const loadUser = () => async (dispatch, getState) => {
   }
 
   try {
-    const res = await axios.get('http://api.codedrop.pro/users/me')
+    const res = await axios.get(
+      'https://codedrop-server.herokuapp.com/users/me'
+    )
     dispatch({ type: USER_LOADED, payload: res.data })
   } catch (err) {
     dispatch({ type: AUTH_ERROR })
@@ -39,7 +41,7 @@ export const register =
     try {
       const res = await axios.post(
         // `${process.env.API_URL}/auth/local/register`,
-        `http://api.codedrop.pro/auth/local/register`,
+        `https://codedrop-server.herokuapp.com/auth/local/register`,
         body,
         config
       )
@@ -72,7 +74,7 @@ export const login =
     try {
       const res = await axios.post(
         // `${process.env.API_URL}/auth/local`,
-        `http://api.codedrop.pro/auth/local`,
+        `https://codedrop-server.herokuapp.com/auth/local`,
         body,
         config
       )

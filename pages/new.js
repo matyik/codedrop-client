@@ -58,7 +58,10 @@ const New = ({ isAuthenticated, theme }) => {
       fData.expirationDate &&
       Date.parse(`${fData.expirationDate} ${fData.expirationTime}`)
     try {
-      const res = await axios.post('http://api.codedrop.pro/drops', fData)
+      const res = await axios.post(
+        'https://codedrop-server.herokuapp.com/drops',
+        fData
+      )
       const data = await res.data
       Router.push(`/d/${data.slug}`)
     } catch (err) {

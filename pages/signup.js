@@ -23,7 +23,7 @@ const signup = ({ register, isAuthenticated, theme }) => {
     if (e.target.value.length > 2) {
       try {
         const res = await axios.get(
-          `http://api.codedrop.pro/users?username=${e.target.value}`
+          `https://codedrop-server.herokuapp.com/users?username=${e.target.value}`
         )
         if (res.data.length === 1) {
           setUsernameTaken('true')
