@@ -41,6 +41,9 @@ const LANGS = [
 const New = ({ isAuthenticated, theme }) => {
   const oppositeTheme = theme === 'dark' ? 'light' : 'dark'
 
+  // Redirect if not logged in
+  if (!isAuthenticated) document.location = 'https://codedrop.pro/signup'
+
   const [formData, setFormData] = useState({
     title: '',
     language: '',

@@ -165,7 +165,7 @@ const Drop = ({ drop, theme, auth }) => {
       </Modal>
       <Modal show={showModal === 'delete'} onHide={() => setShowModal(null)}>
         <Modal.Header closeButton>
-          <Modal.Title>Share Drop</Modal.Title>
+          <Modal.Title>Delete Drop</Modal.Title>
         </Modal.Header>
         <Modal.Body>Are you sure you want to delete {drop.title}</Modal.Body>
         <Modal.Footer>
