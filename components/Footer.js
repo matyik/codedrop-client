@@ -9,7 +9,7 @@ const Footer = ({ theme }) => {
       className={`bg-${theme}`}
       style={{ paddingTop: '5rem', borderTop: '1px solid #007bff' }}>
       <p className={`text-${oppositeTheme} text-center`}>
-        Created by <a href='https://matyi.pro'>Matyi Kari</a>
+        Created by <a href='https://matyi.tech'>Matyi Kari</a>
       </p>
     </div>
   )
